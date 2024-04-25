@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -27,27 +25,17 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font",
-      {
-        "fonts": [
-          {
-            "asset": "./assets/fonts/poppins_regular.ttf",
-            "fontWeight": "400"
-          },
-          {
-            "asset": "./assets/fonts/poppins_medium.ttf",
-            "fontWeight": "500"
-          },
-          {
-            "asset": "./assets/fonts/poppins_semibold.ttf",
-            "fontWeight": "600"
-          },
-          {
-            "asset": "./assets/fonts/poppins_bold.ttf",
-            "fontWeight": "700"
-          }
-        ]
-      }
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/poppins_bold.ttf",
+            "./assets/fonts/poppins_regular.ttf",
+            "./assets/fonts/poppins_medium.ttf",
+            "./assets/fonts/poppins_light.ttf"
+          ]
+        }
+      ]
     ]
   }
 }

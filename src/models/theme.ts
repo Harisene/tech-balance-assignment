@@ -6,5 +6,11 @@ export interface Theme {
   };
   tbPrimary: {
     default: string;
+    mute: string;
   };
+}
+
+export enum ThemeMode {
+  LIGHT = 'light',
+  DARK = 'dark',
 }

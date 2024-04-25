@@ -2,9 +2,10 @@ export default {
   shades: {
     white: '#FFFFFF',
     black: '#000000',
-    bg: '#E8E8E8'
+    bg: '#D8E2F5'
   },
   tbPrimary: {
     default: '#52485F',
+    mute: '#F0F3FF',
   }
 }
