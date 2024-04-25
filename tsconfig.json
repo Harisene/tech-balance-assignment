@@ -8,6 +8,11 @@
       "@resources/*": ["src/resources/*"],
       "@screens/*": ["src/screens/*"],
       "@navigation/*": ["src/navigation/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@providers/*": ["src/providers/*"],
+      "@models/*": ["src/models/*"],
+      "@themes/*": ["src/themes/*"],
     }
   },
 }
