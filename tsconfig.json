@@ -1,4 +1,13 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "include": ["src"],
+  "compilerOptions": {
+    "jsx": "react-native",
+    "baseUrl": "./",
+    "paths": {
+      "@resources/*": ["src/resources/*"],
+      "@screens/*": ["src/screens/*"],
+      "@navigation/*": ["src/navigation/*"],
+    }
+  },
 }
