@@ -25,6 +25,29 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      {
+        "fonts": [
+          {
+            "asset": "./assets/fonts/poppins_regular.ttf",
+            "fontWeight": "400"
+          },
+          {
+            "asset": "./assets/fonts/poppins_medium.ttf",
+            "fontWeight": "500"
+          },
+          {
+            "asset": "./assets/fonts/poppins_semibold.ttf",
+            "fontWeight": "600"
+          },
+          {
+            "asset": "./assets/fonts/poppins_bold.ttf",
+            "fontWeight": "700"
+          }
+        ]
+      }
+    ]
   }
 }
