@@ -17,9 +17,10 @@ module.exports = function(api) {
             '@models': './src/models',
             '@features': './src/features',
             '@screens': './src/screens',
+            "@libs": "./src/libs",
           },
         },
-      ],
+      ]
     ],
   };
 };

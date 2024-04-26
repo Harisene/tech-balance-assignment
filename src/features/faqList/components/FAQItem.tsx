@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  LayoutAnimation,
+} from "react-native";
 import FeatherIcon from "@expo/vector-icons/Feather";
 import useTheme from "@hooks/useTheme";
 import PressableButton from "@components/Buttons/PressableButton";
 import typography from "@themes/typography";
 import { verticalScale } from "@themes/metrics";
+import { isAndroid } from "@libs/utils";
 
 interface Props {
   question: string;
@@ -15,6 +21,7 @@ interface Props {
 export default function FAQItem(props: Props) {
   const { colors } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
+
   const styles = getStyles();
 
   return (
@@ -37,13 +44,15 @@ export default function FAQItem(props: Props) {
   );
 
   function toggleExpand() {
-    setIsExpanded((prev) => !prev);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setIsExpanded(!isExpanded);
   }
 
   function getStyles() {
     return StyleSheet.create({
       container: {
-        borderBottomWidth: props.isLastItem || isExpanded ? 0: verticalScale(2),
+        borderBottomWidth:
+          props.isLastItem || isExpanded ? 0 : verticalScale(2),
         borderBottomColor: colors.primary.mute,
       },
       questionContainer: {
@@ -56,8 +65,10 @@ export default function FAQItem(props: Props) {
       answerContainer: {
         padding: verticalScale(16),
         backgroundColor: colors.shades.lightGrey,
-        borderBottomWidth: props.isLastItem ? 0: verticalScale(2),
+        borderBottomWidth: props.isLastItem ? 0 : verticalScale(2),
         borderBottomColor: colors.primary.mute,
+        borderBottomLeftRadius: isAndroid() ? verticalScale(20) : 0,
+        borderBottomRightRadius: isAndroid() ? verticalScale(20) : 0,
       },
       question: {
         ...typography.paragraphThree,
