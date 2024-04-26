@@ -24,6 +24,7 @@ export default function HelpScreen() {
       },
       divider: {
         marginVertical: verticalScale(20),
+        height: verticalScale(1)
       }
     });
   }

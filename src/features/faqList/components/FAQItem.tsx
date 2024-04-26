@@ -43,7 +43,7 @@ export default function FAQItem(props: Props) {
   function getStyles() {
     return StyleSheet.create({
       container: {
-        borderBottomWidth: !props.isLastItem && verticalScale(1),
+        borderBottomWidth: props.isLastItem || isExpanded ? 0: verticalScale(2),
         borderBottomColor: colors.primary.mute,
       },
       questionContainer: {
@@ -51,12 +51,13 @@ export default function FAQItem(props: Props) {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        borderBottomWidth: !props.isLastItem && verticalScale(2),
         borderBottomColor: colors.primary.mute,
       },
       answerContainer: {
         padding: verticalScale(16),
         backgroundColor: colors.shades.lightGrey,
+        borderBottomWidth: props.isLastItem ? 0: verticalScale(2),
+        borderBottomColor: colors.primary.mute,
       },
       question: {
         ...typography.paragraphThree,

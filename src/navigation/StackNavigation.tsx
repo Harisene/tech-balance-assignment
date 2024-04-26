@@ -3,9 +3,9 @@ import SettingsScreen from "src/screens/SettingsScreen";
 import useTheme from "@hooks/useTheme";
 import typography from "@themes/typography";
 import strings from "@resources/strings";
-import BackButton from "@components/Buttons/BackButton";
 import { useNavigation } from "@react-navigation/native";
 import HelpScreen from "@screens/HelpScreen";
+import NavigationBackButton from "@components/Buttons/NavigationBackButton";
 
 export type RootStackParamList = {
   Settings: undefined;
@@ -22,9 +22,7 @@ export default function StackNavigation() {
     <Stack.Navigator
       screenOptions={{
         headerLeft: (props) =>
-          props.canGoBack && (
-            <BackButton onPress={handleBackPress} />
-          ),
+          props.canGoBack && <NavigationBackButton onPress={handleBackPress} />,
         contentStyle: { backgroundColor: colors.shades.bg },
         headerStyle: { backgroundColor: colors.shades.bg },
         headerShadowVisible: false,
@@ -36,7 +34,11 @@ export default function StackNavigation() {
       }}
     >
       <Stack.Screen name={"Settings"} component={SettingsScreen} />
-      <Stack.Screen name={"Help"} component={HelpScreen} options={{headerTitle: strings.help_support}} />
+      <Stack.Screen
+        name={"Help"}
+        component={HelpScreen}
+        options={{ headerTitle: strings.help_support }}
+      />
     </Stack.Navigator>
   );
 
