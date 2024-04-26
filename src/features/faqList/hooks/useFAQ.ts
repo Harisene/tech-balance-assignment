@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "src/store";
-import { fetchFAQs } from "../store/faqList.slice";
+import {
+  fetchFAQs,
+  setSelectedCategoryId as setSelectedCId,
+} from "../store/faqList.slice";
 
 export default function useFAQ() {
   const dispatch: AppDispatch = useDispatch();
@@ -11,8 +14,13 @@ export default function useFAQ() {
     dispatch(fetchFAQs());
   }
 
+  function setSelectedCategoryId(id: string) {
+    dispatch(setSelectedCId(id));
+  }
+
   return {
     getFAQData,
+    setSelectedCategoryId,
     selectedCategoryId: faq.selectedCategoryId,
     allFAQDataByCategory: faq.faqsByCategory,
     isLoading: !faq.isDataFetched,

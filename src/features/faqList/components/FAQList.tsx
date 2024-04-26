@@ -12,11 +12,14 @@ import Loader from "@components/Loader";
 
 export default function FAQList() {
   const { colors } = useTheme();
-  const { allFAQDataByCategory, getFAQData, isLoading } = useFAQ();
+  const { allFAQDataByCategory, setSelectedCategoryId, getFAQData, isLoading } =
+    useFAQ();
   const styles = getStyles();
 
   useEffect(() => {
     getFAQData();
+
+    return () => {setSelectedCategoryId("all")};
   }, []);
 
   if (isLoading) {

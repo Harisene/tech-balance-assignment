@@ -3,13 +3,10 @@ import { FlatList } from "react-native";
 import { FAQS } from "../data";
 import { FAQCategory } from "../models/faq.model";
 import CategoryPill from "./CategoryPill";
-import { useDispatch } from "react-redux";
-import { setSelectedCategoryId } from "../store/faqList.slice";
 import useFAQ from "../hooks/useFAQ";
 
 export default function FAQCategoryList() {
-  const dispatch = useDispatch();
-  const { selectedCategoryId } = useFAQ();
+  const { selectedCategoryId, setSelectedCategoryId } = useFAQ();
 
   return (
     <>
@@ -35,6 +32,6 @@ export default function FAQCategoryList() {
   }
 
   function handleCategorySelect(id: string) {
-    dispatch(setSelectedCategoryId(id));
+    setSelectedCategoryId(id);
   }
 }
