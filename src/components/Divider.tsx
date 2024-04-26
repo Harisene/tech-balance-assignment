@@ -18,7 +18,7 @@ export default function Divider(props: Props) {
       container: {
         width: '100%',
         height: verticalScale(2),
-        backgroundColor: colors.tbPrimary.mute,
+        backgroundColor: colors.primary.mute,
       },
     });
   }

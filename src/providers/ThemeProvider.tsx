@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import lightTheme from "@themes/lightTheme";
-import { ThemeMode } from "@models/theme";
-import { Theme } from "@models/theme";
+import { ThemeMode } from "@models/theme.model";
+import { Theme } from "@models/theme.model";
 
 const initialState = {
   theme: ThemeMode.LIGHT,
