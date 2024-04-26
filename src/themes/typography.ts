@@ -18,6 +18,14 @@ const typography = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     fontSize: moderateScale(16),
   },
+  paragraphFour: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: moderateScale(14),
+  },
+  paragraphFive: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: moderateScale(13),
+  },
   paragraphSemiOne: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: moderateScale(24),

@@ -4,6 +4,7 @@ export interface Theme {
     black: string;
     grey: string;
     bg: string;
+    lightGrey: string;
   };
   primary: {
     default: string;
