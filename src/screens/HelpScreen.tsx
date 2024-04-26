@@ -37,7 +37,7 @@ export default function HelpScreen() {
         height: verticalScale(1),
       },
       buttonContainer: {
-        marginBottom: verticalScale(10),
+        marginBottom: verticalScale(20),
       },
     });
   }

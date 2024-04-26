@@ -5,12 +5,7 @@ import { fetchFAQs } from "../store/faqList.slice";
 export default function useFAQ() {
   const dispatch: AppDispatch = useDispatch();
 
-  const allFAQDataByCategory = useSelector(
-    (state: RootState) => state.faq.faqsByCategory
-  );
-  const selectedCategoryId = useSelector(
-    (state: RootState) => state.faq.selectedCategoryId
-  );
+  const faq = useSelector((state: RootState) => state.faq);
 
   function getFAQData() {
     dispatch(fetchFAQs());
@@ -18,7 +13,8 @@ export default function useFAQ() {
 
   return {
     getFAQData,
-    selectedCategoryId,
-    allFAQDataByCategory,
+    selectedCategoryId: faq.selectedCategoryId,
+    allFAQDataByCategory: faq.faqsByCategory,
+    isLoading: !faq.isDataFetched,
   };
 }

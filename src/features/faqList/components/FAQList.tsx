@@ -8,15 +8,20 @@ import FAQItem from "./FAQItem";
 import FAQCategoryList from "./FAQCategoryList";
 import { FAQ } from "../models/faq.model";
 import useFAQ from "../hooks/useFAQ";
+import Loader from "@components/Loader";
 
 export default function FAQList() {
   const { colors } = useTheme();
-  const { allFAQDataByCategory, getFAQData } = useFAQ();
+  const { allFAQDataByCategory, getFAQData, isLoading } = useFAQ();
   const styles = getStyles();
 
   useEffect(() => {
     getFAQData();
   }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <View style={styles.container}>

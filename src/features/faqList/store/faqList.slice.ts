@@ -68,6 +68,7 @@ export const fetchFAQs = createAsyncThunk(
   "fetchFAQs",
   async (_, { rejectWithValue }) => {
     try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
       return FAQS;
     } catch (error: any) {
       console.error("Error fetching FAQs", error);

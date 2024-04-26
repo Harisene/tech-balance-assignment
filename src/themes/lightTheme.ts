@@ -11,6 +11,6 @@ export default {
     mute: '#F0F3FF',
   },
   secondary: {
-    default: "#1257D9"
+    default: "#67ACF2"
   }
 }
