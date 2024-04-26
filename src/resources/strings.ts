@@ -9,6 +9,7 @@ const strings = {
   'our_247_customer_service': `Our 24x7 Customer Service`,
   'write_us_at': `Write us at`,
   'faq': 'Frequently Asked Questions',
+  'start_conversation': 'Start Conversation',
 }
 
 export default strings;

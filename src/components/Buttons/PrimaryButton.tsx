@@ -9,6 +9,7 @@ import {
 import PressableButton from "@components/Buttons/PressableButton";
 import useTheme from "@hooks/useTheme";
 import typography from "@themes/typography";
+import { verticalScale, horizontalScale } from "@themes/metrics";
 
 interface Props extends PressableProps {
   title: string;
@@ -38,6 +39,10 @@ export default function PrimaryButton({
       container: {
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: colors.primary.mute,
+        width: '100%',
+        height: verticalScale(52),
+        borderRadius: horizontalScale(50),
       },
       text: {
         ...typography.paragraphSemiThree,

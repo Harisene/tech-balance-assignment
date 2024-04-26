@@ -39,6 +39,10 @@ const typography = StyleSheet.create({
     lineHeight: moderateScale(24),
     fontSize: moderateScale(16),
   },
+  paragraphSemiFour: {
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: moderateScale(14),
+  },
 });
 
 export default typography;

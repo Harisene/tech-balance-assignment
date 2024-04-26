@@ -37,11 +37,7 @@ export default function SettingsScreen(_: SettingsScreenProps) {
         paddingHorizontal: horizontalScale(20)
       },
       logoutButton: {
-        width: '100%',
-        backgroundColor: colors.primary.mute,
-        marginTop: verticalScale(30),
-        height: verticalScale(52),
-        borderRadius: horizontalScale(50),
+        marginTop: verticalScale(30)
       },
     });
   }
