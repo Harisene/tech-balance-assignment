@@ -3,10 +3,14 @@ import { FlatList } from "react-native";
 import { FAQS } from "../data";
 import { FAQCategory } from "../models/faq.model";
 import CategoryPill from "./CategoryPill";
+import { useDispatch } from "react-redux";
+import { setSelectedCategoryId } from "../store/faqList.slice";
+import useFAQ from "../hooks/useFAQ";
 
-interface Props {}
+export default function FAQCategoryList() {
+  const dispatch = useDispatch();
+  const { selectedCategoryId } = useFAQ();
 
-export default function FAQCategoryList(props: Props) {
   return (
     <>
       <FlatList
@@ -20,6 +24,17 @@ export default function FAQCategoryList(props: Props) {
   );
 
   function renderItem({ item }: { item: FAQCategory }) {
-    return <CategoryPill id={item.id} name={item.name}  />;
+    return (
+      <CategoryPill
+        id={item.id}
+        name={item.name}
+        selected={selectedCategoryId === item.id}
+        onCategorySelected={handleCategorySelect}
+      />
+    );
+  }
+
+  function handleCategorySelect(id: string) {
+    dispatch(setSelectedCategoryId(id));
   }
 }

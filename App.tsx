@@ -1,16 +1,15 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { Text, UIManager } from "react-native";
+import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import StackNavigation from "./src/navigation/StackNavigation";
 import { isAndroid } from "./src/libs/utils";
+import { store } from "./src/store";
 
 // Enabling LayoutAnimation for Android
-if (
-  isAndroid() &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
+if (isAndroid() && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
@@ -27,8 +26,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <StackNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <StackNavigation />
+      </NavigationContainer>
+    </Provider>
   );
 }

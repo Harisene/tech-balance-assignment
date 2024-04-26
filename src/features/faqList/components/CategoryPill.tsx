@@ -8,7 +8,8 @@ import typography from "@themes/typography";
 interface Props {
   id: string;
   name: string;
-  selected?: boolean;
+  selected: boolean;
+  onCategorySelected: (id: string) => void;
 }
 
 export default function CategoryPill(props: Props) {
@@ -16,10 +17,14 @@ export default function CategoryPill(props: Props) {
   const styles = getStyles();
 
   return (
-    <PressableButton style={styles.container}>
+    <PressableButton style={styles.container} onPress={handleButtonPress}>
       <Text style={styles.text}>{props.name}</Text>
     </PressableButton>
   );
+
+  function handleButtonPress() {
+    props.onCategorySelected(props.id);
+  }
 
   function getStyles() {
     return StyleSheet.create({
@@ -27,7 +32,7 @@ export default function CategoryPill(props: Props) {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: props.selected
-          ? colors.primary.default
+          ? colors.secondary.default
           : colors.primary.mute,
         borderRadius: verticalScale(60),
         padding: verticalScale(10),

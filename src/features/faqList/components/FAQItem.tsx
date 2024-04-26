@@ -6,12 +6,10 @@ import PressableButton from "@components/Buttons/PressableButton";
 import typography from "@themes/typography";
 import { moderateScale, verticalScale } from "@themes/metrics";
 import { isAndroid } from "@libs/utils";
-import Divider from "@components/Divider";
 
 interface Props {
   question: string;
   answer: string;
-  isLastItem?: boolean;
 }
 
 export default function FAQItem(props: Props) {
@@ -37,7 +35,6 @@ export default function FAQItem(props: Props) {
           <Text style={styles.answer}>{props.answer}</Text>
         </View>
       )}
-      { !props.isLastItem && <Divider />}
     </View>
   );
 
@@ -49,6 +46,9 @@ export default function FAQItem(props: Props) {
   function getStyles() {
     return StyleSheet.create({
       container: {
+        marginTop: verticalScale(5),
+        backgroundColor: colors.shades.white,
+        borderRadius: verticalScale(10),
       },
       questionContainer: {
         padding: verticalScale(16),
