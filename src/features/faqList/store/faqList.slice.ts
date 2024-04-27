@@ -8,6 +8,7 @@ export interface CounterState {
   selectedCategoryId: string;
   faqsByCategory: FAQ[];
   isDataFetched: boolean;
+  error?: string
 }
 
 const initialState: CounterState = {
@@ -15,6 +16,7 @@ const initialState: CounterState = {
   selectedCategoryId: "all",
   faqsByCategory: [],
   isDataFetched: false,
+  error: undefined
 };
 
 export const faqListSlice = createSlice({
@@ -38,11 +40,15 @@ export const faqListSlice = createSlice({
         ? selectedCategoryData.faqs
         : [];
     },
+    resetFAQError: (state) => {
+      state.error = undefined;
+    }
   },
   extraReducers(builder) {
     builder
       .addCase(fetchFAQs.pending, (state) => {
         state.isDataFetched = false;
+        state.error = undefined;
       })
       .addCase(fetchFAQs.fulfilled, (state, action) => {
         const allFAQData = action.payload;
@@ -58,8 +64,9 @@ export const faqListSlice = createSlice({
         state.faqsByCategory = faqsByCategory;
         state.isDataFetched = true;
       })
-      .addCase(fetchFAQs.rejected, (state) => {
+      .addCase(fetchFAQs.rejected, (state, action) => {
         state.isDataFetched = true;
+        state.error = action.payload as string;
       });
   },
 });
@@ -72,13 +79,12 @@ export const fetchFAQs = createAsyncThunk(
       await new Promise(resolve => setTimeout(resolve, 2000));
       return FAQS;
     } catch (error: any) {
-      console.error("Error fetching FAQs", error);
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
 
 // Action creators are generated for each case reducer function
-export const { setSelectedCategoryId } = faqListSlice.actions;
+export const { setSelectedCategoryId, resetFAQError } = faqListSlice.actions;
 
 export default faqListSlice.reducer;

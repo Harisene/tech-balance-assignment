@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "src/store";
 import {
   fetchFAQs,
+  resetFAQError,
   setSelectedCategoryId as setSelectedCId,
 } from "../store/faqList.slice";
 
@@ -10,6 +11,9 @@ export default function useFAQ() {
 
   const faq = useSelector((state: RootState) => state.faq);
 
+  function resetError() {
+    dispatch(resetFAQError());
+  }
   function getFAQData() {
     dispatch(fetchFAQs());
   }
@@ -24,5 +28,7 @@ export default function useFAQ() {
     selectedCategoryId: faq.selectedCategoryId,
     allFAQDataByCategory: faq.faqsByCategory,
     isLoading: !faq.isDataFetched,
+    error: faq.error,
+    resetError
   };
 }

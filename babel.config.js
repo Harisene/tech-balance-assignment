@@ -18,6 +18,7 @@ module.exports = function(api) {
             '@features': './src/features',
             '@screens': './src/screens',
             "@libs": "./src/libs",
+            '@hoc': './src/hoc',
           },
         },
       ]

@@ -10,7 +10,7 @@ import { FAQ } from "../models/faq.model";
 import useFAQ from "../hooks/useFAQ";
 import Loader from "@components/Loader";
 
-export default function FAQList() {
+const FAQList = () => {
   const { colors } = useTheme();
   const { allFAQDataByCategory, setSelectedCategoryId, getFAQData, isLoading } =
     useFAQ();
@@ -19,7 +19,9 @@ export default function FAQList() {
   useEffect(() => {
     getFAQData();
 
-    return () => {setSelectedCategoryId("all")};
+    return () => {
+      setSelectedCategoryId("all");
+    };
   }, []);
 
   if (isLoading) {
@@ -64,4 +66,6 @@ export default function FAQList() {
       },
     });
   }
-}
+};
+
+export default FAQList;

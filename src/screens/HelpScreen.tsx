@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import ContactInfo from "@features/contactInfo/components/ContactInfo";
 import FAQList from "@features/faqList/components/FAQList";
@@ -7,10 +7,22 @@ import { horizontalScale, moderateScale, verticalScale } from "@themes/metrics";
 import FloatingActionButton from "@components/Buttons/FloatingActionButton";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import useTheme from "@hooks/useTheme";
+import withToast, { ToastProps } from "@hoc/withToast";
+import useFAQ from "@features/faqList/hooks/useFAQ";
 
-export default function HelpScreen() {
+interface Props extends ToastProps {}
+
+const HelpScreen = (props: Props) => {
   const { colors } = useTheme();
+  const { error, resetError } = useFAQ();
   const styles = getStyles();
+
+  useEffect(() => {
+    if (error) {
+      props.showToast(error);
+      resetError();
+    }
+  }, [error]);
 
   return (
     <View style={styles.container}>
@@ -50,4 +62,6 @@ export default function HelpScreen() {
       },
     });
   }
-}
+};
+
+export default withToast(HelpScreen);
