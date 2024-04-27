@@ -3,11 +3,13 @@ import { View, StyleSheet } from "react-native";
 import ContactInfo from "@features/contactInfo/components/ContactInfo";
 import FAQList from "@features/faqList/components/FAQList";
 import Divider from "@components/Divider";
-import { horizontalScale, verticalScale } from "@themes/metrics";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
-import strings from "@resources/strings";
+import { horizontalScale, moderateScale, verticalScale } from "@themes/metrics";
+import FloatingActionButton from "@components/Buttons/FloatingActionButton";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import useTheme from "@hooks/useTheme";
 
 export default function HelpScreen() {
+  const { colors } = useTheme();
   const styles = getStyles();
 
   return (
@@ -18,7 +20,13 @@ export default function HelpScreen() {
         <FAQList />
       </View>
       <View style={styles.buttonContainer}>
-        <PrimaryButton title={strings.start_conversation} onPress={null} />
+        <FloatingActionButton onPress={null}>
+          <Ionicons
+            name="chatbox"
+            size={moderateScale(30)}
+            color={colors.shades.white}
+          />
+        </FloatingActionButton>
       </View>
     </View>
   );
@@ -30,13 +38,14 @@ export default function HelpScreen() {
         paddingHorizontal: horizontalScale(20),
       },
       innerContainer: {
-        flex: 1,
+        flex: 8,
       },
       divider: {
         marginVertical: verticalScale(20),
         height: verticalScale(1),
       },
       buttonContainer: {
+        flex: 1,
         marginBottom: verticalScale(20),
       },
     });
