@@ -5,7 +5,10 @@ import typography from "@themes/typography";
 import strings from "@resources/strings";
 import { useNavigation } from "@react-navigation/native";
 import HelpScreen from "@screens/HelpScreen";
-import NavigationBackButton from "@components/Buttons/NavigationBackButton";
+import ThemeToggleButton from "@components/Buttons/ThemeToggleButton";
+import BackButton from "@components/Buttons/BackButton";
+import { Platform, StyleSheet } from "react-native";
+import { horizontalScale } from "@themes/metrics";
 
 export type RootStackParamList = {
   Settings: undefined;
@@ -18,11 +21,15 @@ export default function StackNavigation() {
   const { colors } = useTheme();
   const navigation = useNavigation();
 
+  const styles = getStyles();
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerLeft: (props) =>
-          props.canGoBack && <NavigationBackButton onPress={handleBackPress} />,
+          props.canGoBack && (
+            <BackButton style={styles.backButton} onPress={handleBackPress} />
+          ),
         contentStyle: { backgroundColor: colors.shades.bg },
         headerStyle: { backgroundColor: colors.shades.bg },
         headerShadowVisible: false,
@@ -31,6 +38,7 @@ export default function StackNavigation() {
           color: colors.shades.black,
         },
         headerBackTitleVisible: false,
+        headerRight: () => <ThemeToggleButton />,
       }}
     >
       <Stack.Screen name={"Settings"} component={SettingsScreen} />
@@ -44,5 +52,13 @@ export default function StackNavigation() {
 
   function handleBackPress() {
     navigation.goBack();
+  }
+
+  function getStyles() {
+    return StyleSheet.create({
+      backButton: {
+        marginRight: Platform.OS === "android" ? horizontalScale(20) : 0,
+      },
+    });
   }
 }

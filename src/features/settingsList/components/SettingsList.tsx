@@ -5,9 +5,11 @@ import strings from "@resources/strings";
 import SettingsActionButton from "./SettingsActionButton";
 import { useNavigation } from "@react-navigation/native";
 import { horizontalScale } from "@themes/metrics";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@navigation/StackNavigation";
 
 export default function SettingsList() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, "Settings", undefined>>();
   const styles = getStyles();
 
   return (
@@ -56,7 +58,7 @@ export default function SettingsList() {
   function getStyles() {
     return StyleSheet.create({
       container: {
-        width: '100%',
+        width: "100%",
         marginTop: horizontalScale(20),
         overflow: "hidden",
       },

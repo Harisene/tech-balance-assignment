@@ -54,7 +54,6 @@ const FAQList = () => {
         paddingBottom: verticalScale(20),
       },
       flatList: {
-        borderRadius: verticalScale(20),
         marginTop: verticalScale(10),
       },
       title: {

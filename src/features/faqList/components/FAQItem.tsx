@@ -65,6 +65,7 @@ export default function FAQItem(props: Props) {
       question: {
         flex: 1,
         ...typography.paragraphThree,
+        color: colors.shades.black,
       },
       answer: {
         ...typography.paragraphThree,

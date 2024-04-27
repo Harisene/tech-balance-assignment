@@ -33,6 +33,7 @@ export default function SettingsScreen(_: SettingsScreenProps) {
   function getStyles() {
     return StyleSheet.create({
       container: {
+        flex: 1,
         alignItems: "center",
         paddingHorizontal: horizontalScale(20)
       },
