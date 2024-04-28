@@ -2,6 +2,8 @@
 
 Please follow the below steps to run this project.
 
+> **Note:** This project has been developed with Node version v20.8.1.
+
 1. Clone this repository to your local machine.
    
    ```bash
