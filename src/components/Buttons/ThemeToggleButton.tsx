@@ -13,7 +13,11 @@ export default function ThemeToggleButton() {
       {theme === ThemeMode.LIGHT ? (
         <MaterialIcons name="light-mode" size={horizontalScale(24)} />
       ) : (
-        <MaterialIcons name="dark-mode" size={horizontalScale(24)} color={colors.shades.black} />
+        <MaterialIcons
+          name="dark-mode"
+          size={horizontalScale(24)}
+          color={colors.shades.black}
+        />
       )}
     </PressableButton>
   );

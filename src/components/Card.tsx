@@ -1,11 +1,9 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import useTheme from "@hooks/useTheme";
 import { horizontalScale, moderateScale, verticalScale } from "@themes/metrics";
-import { StyleProp, View, ViewStyle, StyleSheet } from "react-native";
+import { View, StyleSheet, ViewProps } from "react-native";
 
-interface Props extends PropsWithChildren {
-  style?: StyleProp<ViewStyle>;
-}
+interface Props extends ViewProps {}
 
 export default function Card(props: Props) {
   const { colors } = useTheme();
@@ -27,7 +25,7 @@ export default function Card(props: Props) {
         },
         shadowOpacity: moderateScale(0.05),
         shadowRadius: verticalScale(0.5),
-        elevation: verticalScale(5)
+        elevation: verticalScale(5),
       },
     });
   }

@@ -3,19 +3,14 @@ import AntDesignIcons from "@expo/vector-icons/AntDesign";
 import useTheme from "@hooks/useTheme";
 import { moderateScale } from "@themes/metrics";
 import PressableButton from "@components/Buttons/PressableButton";
-import { PressableProps } from "react-native";
-
-interface Props extends PressableProps {
-  iconColor?: string;
-  iconSize?: number;
-}
+import { BackButtonProps } from "@models/button.model";
 
 export default function BackButton({
   iconColor,
   iconSize,
   onPress,
   ...rest
-}: Props) {
+}: BackButtonProps) {
   const { colors } = useTheme();
 
   return (

@@ -1,11 +1,9 @@
 import React from "react";
-import { View, StyleSheet, ViewStyle, StyleProp } from "react-native";
+import { View, StyleSheet, ViewProps } from "react-native";
 import useTheme from "@hooks/useTheme";
 import { verticalScale } from "@themes/metrics";
 
-interface Props {
-  style?: StyleProp<ViewStyle>
-}
+interface Props extends ViewProps {}
 
 export default function Divider(props: Props) {
   const { colors } = useTheme();
@@ -16,7 +14,7 @@ export default function Divider(props: Props) {
   function getStyles() {
     return StyleSheet.create({
       container: {
-        width: '100%',
+        width: "100%",
         height: verticalScale(2),
         backgroundColor: colors.primary.mute,
       },

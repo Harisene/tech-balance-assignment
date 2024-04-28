@@ -3,11 +3,10 @@ import { StyleSheet, View } from "react-native";
 import { horizontalScale, verticalScale } from "@themes/metrics";
 import ActionButton from "@components/Buttons/ActionButton";
 import Divider from "@components/Divider";
+import { ActionButtonProps } from "@models/button.model";
 
-interface Props {
-  title: string;
+interface Props extends ActionButtonProps {
   hideDivider?: boolean;
-  onPress: () => void;
 }
 
 export default function SettingsActionButton(props: Props) {

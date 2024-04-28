@@ -1,28 +1,17 @@
 import React from "react";
-import {
-  PressableProps,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import { StyleProp, StyleSheet, Text, ViewStyle } from "react-native";
 import PressableButton from "@components/Buttons/PressableButton";
 import useTheme from "@hooks/useTheme";
 import typography from "@themes/typography";
 import { verticalScale, horizontalScale } from "@themes/metrics";
-
-interface Props extends PressableProps {
-  title: string;
-  textStyle?: StyleProp<TextStyle>;
-}
+import { PrimaryButtonProps } from "@models/button.model";
 
 export default function PrimaryButton({
   title,
   textStyle,
   style,
   ...rest
-}: Props) {
+}: PrimaryButtonProps) {
   const { colors } = useTheme();
   const styles = getStyles();
 

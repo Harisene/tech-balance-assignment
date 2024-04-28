@@ -32,7 +32,7 @@ const HelpScreen = (props: Props) => {
         <FAQList />
       </View>
       <View style={styles.buttonContainer}>
-        <FloatingActionButton onPress={null}>
+        <FloatingActionButton>
           <Ionicons
             name="chatbox"
             size={moderateScale(30)}

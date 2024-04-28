@@ -8,7 +8,7 @@ export interface CounterState {
   selectedCategoryId: string;
   faqsByCategory: FAQ[];
   isDataFetched: boolean;
-  error?: string
+  error?: string;
 }
 
 const initialState: CounterState = {
@@ -16,7 +16,7 @@ const initialState: CounterState = {
   selectedCategoryId: "all",
   faqsByCategory: [],
   isDataFetched: false,
-  error: undefined
+  error: undefined,
 };
 
 export const faqListSlice = createSlice({
@@ -27,14 +27,12 @@ export const faqListSlice = createSlice({
       state.selectedCategoryId = action.payload;
 
       if (action.payload === "all") {
-        state.faqsByCategory = state.allFAQData.reduce(
-          (acc, category) => acc.concat(category.faqs),
-          [] as FAQ[]
-        );
+        state.faqsByCategory = getAllFAQs(state.allFAQData);
         return;
       }
-      const selectedCategoryData = state.allFAQData.find(
-        (category) => category.id === action.payload
+      const selectedCategoryData = getFAQDataByCategoryId(
+        state.allFAQData,
+        action.payload
       );
       state.faqsByCategory = selectedCategoryData
         ? selectedCategoryData.faqs
@@ -42,7 +40,7 @@ export const faqListSlice = createSlice({
     },
     resetFAQError: (state) => {
       state.error = undefined;
-    }
+    },
   },
   extraReducers(builder) {
     builder
@@ -53,15 +51,7 @@ export const faqListSlice = createSlice({
       .addCase(fetchFAQs.fulfilled, (state, action) => {
         const allFAQData = action.payload;
         state.allFAQData = allFAQData;
-        const faqsByCategory: FAQ[] = [];
-        allFAQData.forEach((category) => {
-          if (state.selectedCategoryId === "all") {
-            faqsByCategory.push(...category.faqs);
-          } else if (category.id === state.selectedCategoryId) {
-            faqsByCategory.push(...category.faqs);
-          }
-        });
-        state.faqsByCategory = faqsByCategory;
+        state.faqsByCategory = getAllFAQs(allFAQData);
         state.isDataFetched = true;
       })
       .addCase(fetchFAQs.rejected, (state, action) => {
@@ -71,12 +61,23 @@ export const faqListSlice = createSlice({
   },
 });
 
+function getAllFAQs(allFAQData: FAQCategory[]) {
+  return allFAQData.reduce(
+    (acc, category) => acc.concat(category.faqs),
+    [] as FAQ[]
+  );
+}
+
+function getFAQDataByCategoryId(allFAQData: FAQCategory[], categoryId: string) {
+  return allFAQData.find((category) => category.id === categoryId);
+}
+
 export const fetchFAQs = createAsyncThunk(
   "fetchFAQs",
   async (_, { rejectWithValue }) => {
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       return FAQS;
     } catch (error: any) {
       return rejectWithValue(error.message);

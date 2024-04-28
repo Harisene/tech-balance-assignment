@@ -5,7 +5,6 @@ import useTheme from "@hooks/useTheme";
 import PressableButton from "@components/Buttons/PressableButton";
 import typography from "@themes/typography";
 import { moderateScale, verticalScale } from "@themes/metrics";
-import { isAndroid } from "@libs/utils";
 
 interface Props {
   question: string;

@@ -1,22 +1,10 @@
 import React from "react";
-import {
-  Text,
-  StyleSheet,
-  PressableProps,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import { Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
 import FeatherIcon from "@expo/vector-icons/Feather";
 import useTheme from "@hooks/useTheme";
 import PressableButton from "@components/Buttons/PressableButton";
 import typography from "@themes/typography";
-
-interface Props extends PressableProps {
-  title: string;
-  renderIcon?: () => React.ReactNode;
-  textStyle?: StyleProp<TextStyle>;
-}
+import { ActionButtonProps } from "@models/button.model";
 
 export default function ActionButton({
   title,
@@ -24,12 +12,15 @@ export default function ActionButton({
   renderIcon: rIcon,
   style,
   ...rest
-}: Props) {
+}: ActionButtonProps) {
   const { colors } = useTheme();
   const styles = getStyles();
 
   return (
-    <PressableButton style={[styles.container, style as StyleProp<ViewStyle>]} {...rest}>
+    <PressableButton
+      style={[styles.container, style as StyleProp<ViewStyle>]}
+      {...rest}
+    >
       <Text style={[styles.text, textStyle]}>{title}</Text>
       {renderIcon()}
     </PressableButton>
@@ -55,7 +46,7 @@ export default function ActionButton({
       text: {
         ...typography.paragraphSemiThree,
         color: colors.shades.black,
-      }
+      },
     });
   }
 }
