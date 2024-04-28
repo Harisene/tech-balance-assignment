@@ -1,23 +1,20 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { FAQS } from "../data";
 import { FAQCategory } from "../models/faq.model";
 import CategoryPill from "./CategoryPill";
 import useFAQ from "../hooks/useFAQ";
 
 export default function FAQCategoryList() {
-  const { selectedCategoryId, setSelectedCategoryId } = useFAQ();
+  const { selectedCategoryId, allFAQData, setSelectedCategoryId } = useFAQ();
 
   return (
-    <>
-      <FlatList
-        data={FAQS}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </>
+    <FlatList
+      data={allFAQData}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
   );
 
   function renderItem({ item }: { item: FAQCategory }) {

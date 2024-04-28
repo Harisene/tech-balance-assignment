@@ -27,6 +27,7 @@ export default function useFAQ() {
     setSelectedCategoryId,
     selectedCategoryId: faq.selectedCategoryId,
     allFAQDataByCategory: faq.faqsByCategory,
+    allFAQData: faq.allFAQData,
     isLoading: !faq.isDataFetched,
     error: faq.error,
     resetError
