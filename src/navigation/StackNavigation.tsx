@@ -29,7 +29,7 @@ export default function StackNavigation() {
       screenOptions={{
         headerLeft: (props) =>
           props.canGoBack && (
-            <BackButton style={styles.backButton} onPress={handleBackPress} />
+            <BackButton style={styles.backButton} />
           ),
         contentStyle: { backgroundColor: colors.shades.bg },
         headerStyle: { backgroundColor: colors.shades.bg },
@@ -50,10 +50,6 @@ export default function StackNavigation() {
       />
     </Stack.Navigator>
   );
-
-  function handleBackPress() {
-    navigation.goBack();
-  }
 
   function getStyles() {
     return StyleSheet.create({
