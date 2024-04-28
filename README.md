@@ -20,3 +20,5 @@ Please follow the below steps to run this project.
    npm start // start development server
    npm run android // build and run the app on your android emulator
    npm run ios // build and run the app on your iOS simulator
+
+> **Note:** If you cannot run the project, I have added a screen recording of the application I have developed in the **/sample** folder. 
