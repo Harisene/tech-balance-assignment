@@ -5,6 +5,7 @@ import useTheme from "@hooks/useTheme";
 import PressableButton from "@components/Buttons/PressableButton";
 import typography from "@themes/typography";
 import { ActionButtonProps } from "@models/button.model";
+import { moderateScale } from "@themes/metrics";
 
 export default function ActionButton({
   title,
@@ -31,7 +32,11 @@ export default function ActionButton({
       return rIcon();
     }
     return (
-      <FeatherIcon name="chevron-right" size={20} color={colors.shades.black} />
+      <FeatherIcon
+        name="chevron-right"
+        size={moderateScale(20)}
+        color={colors.shades.black}
+      />
     );
   }
 

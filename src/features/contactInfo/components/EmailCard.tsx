@@ -47,8 +47,8 @@ export default function EmailCard() {
       iconContainer: {
         justifyContent: "center",
         alignItems: "center",
-        width: horizontalScale(40),
-        height: verticalScale(40),
+        width: moderateScale(40),
+        height: moderateScale(40),
         borderRadius: horizontalScale(20),
         backgroundColor: colors.primary.mute,
       },
