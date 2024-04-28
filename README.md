@@ -1,4 +1,4 @@
-# Welcome to my TechBalacne Assignment #
+# Welcome to my TechBalance Assignment #
 
 Please follow the below steps to run this project.
 
