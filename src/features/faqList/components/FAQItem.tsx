@@ -49,6 +49,7 @@ export default function FAQItem(props: Props) {
         marginTop: verticalScale(5),
         backgroundColor: colors.shades.white,
         borderRadius: verticalScale(10),
+        overflow: 'hidden'
       },
       questionContainer: {
         padding: verticalScale(16),
@@ -59,8 +60,6 @@ export default function FAQItem(props: Props) {
       answerContainer: {
         padding: verticalScale(16),
         backgroundColor: colors.shades.lightGrey,
-        borderBottomLeftRadius: isAndroid() ? verticalScale(20) : 0,
-        borderBottomRightRadius: isAndroid() ? verticalScale(20) : 0,
       },
       question: {
         flex: 1,

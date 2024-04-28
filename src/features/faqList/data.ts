@@ -10,19 +10,19 @@ const FAQS: FAQCategory[] = [
         id: "3",
         question: "How do I delete my account?",
         answer:
-          "You can delete your account by going to the settings page and clicking on the 'Delete Account' button.",
+          "You can delete your account by going to the settings screen, click on 'Accounts' and tapping on the 'Delete Account' button.",
       },
       {
         id: "7",
         question: "How do I update my account information?",
         answer:
-          "You can update your account information by going to the settings page and clicking on the 'Update Account Information' button.",
+          "You can update your account information by going to the settings screen, tapping on 'Accounts' and tapping on the 'Update Account Information' button.",
       },
       {
         id: "12",
         question: "How do I change my account settings?",
         answer:
-          "You can change your account settings by going to the settings page and clicking on the 'Change Account Settings' button.",
+          "You can change your account settings by going to the settings screen, tapping on 'Accounts' and tapping on the 'Change Account Settings' button.",
       },
     ],
   },
@@ -34,73 +34,25 @@ const FAQS: FAQCategory[] = [
         id: "1",
         question: "How do I change my password?",
         answer:
-          "You can change your password by going to the settings page and clicking on the 'Change Password' button.",
+          "You can change your password by going to the settings screen, tapping on 'Accounts' and tapping on the 'Change Password' button.",
       },
       {
         id: "2",
         question: "How do I update my email address?",
         answer:
-          "You can update your email address by going to the settings page and clicking on the 'Update Email' button.",
+          "You can update your email address by going to the settings screen, tapping on 'Accounts' and tapping on the 'Update Email' button.",
       },
       {
         id: "13",
         question: "How do I update my profile information?",
         answer:
-          "You can update your profile information by going to the settings page and clicking on the 'Update Profile Information' button.",
+          "You can update your profile information by going to the settings screen, tapping on 'Accounts' and tapping on the 'Update Profile Information' button.",
       },
       {
         id: "4",
         question: "How do I change my profile picture?",
         answer:
-          "You can change your profile picture by going to the settings page and clicking on the 'Change Profile Picture' button.",
-      },
-    ],
-  },
-  {
-    id: "financial-and-security-settings",
-    name: "Financial and Security Settings",
-    faqs: [
-      {
-        id: "5",
-        question: "How do I update my payment information?",
-        answer:
-          "You can update your payment information by going to the settings page and clicking on the 'Update Payment Information' button.",
-      },
-      {
-        id: "11",
-        question: "How do I update my security settings?",
-        answer:
-          "You can update your security settings by going to the settings page and clicking on the 'Update Security Settings' button.",
-      },
-    ],
-  },
-  {
-    id: "customization-and-preferences",
-    name: "Customization and Preferences",
-    faqs: [
-      {
-        id: "6",
-        question: "How do I change my notification settings?",
-        answer:
-          "You can change your notification settings by going to the settings page and clicking on the 'Change Notification Settings' button.",
-      },
-      {
-        id: "8",
-        question: "How do I change my language settings?",
-        answer:
-          "You can change your language settings by going to the settings page and clicking on the 'Change Language Settings' button.",
-      },
-      {
-        id: "9",
-        question: "How do I update my location settings?",
-        answer:
-          "You can update your location settings by going to the settings page and clicking on the 'Update Location Settings' button.",
-      },
-      {
-        id: "10",
-        question: "How do I change my privacy settings?",
-        answer:
-          "You can change your privacy settings by going to the settings page and clicking on the 'Change Privacy Settings' button.",
+          "You can change your profile picture by going to the settings screen, tapping on 'Accounts' and tapping on the 'Change Profile Picture' button.",
       },
     ],
   },

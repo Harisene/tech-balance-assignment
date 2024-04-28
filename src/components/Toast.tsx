@@ -1,3 +1,5 @@
+import useTheme from "@hooks/useTheme";
+import { horizontalScale, moderateScale, verticalScale } from "@themes/metrics";
 import React, { useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Animated } from "react-native";
 
@@ -7,8 +9,9 @@ interface Props {
 }
 
 export default function Toast({ message, onClear }: Props) {
-
   const opacity = useRef(new Animated.Value(0)).current;
+  const { colors } = useTheme();
+  const styles = getStyles();
 
   useEffect(() => {
     if (!message) return;
@@ -53,36 +56,35 @@ export default function Toast({ message, onClear }: Props) {
 
   return (
     <Animated.View
-      style={[
-        styles.container,
-        { transform: [{ scale }], opacity },
-      ]}
+      style={[styles.container, { transform: [{ scale }], opacity }]}
     >
       <View style={styles.innerContainer}>
         <Text style={styles.text}>{message}</Text>
       </View>
     </Animated.View>
   );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    position: "absolute",
-    top: 20,
-    width: "100%",
-    alignItems: "center",
-    backgroundColor: "transparent",
-  },
-  innerContainer: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    backgroundColor: "lightgrey",
-    borderRadius: 10,
-    shadowColor: "black",
-    shadowOffset: { width: 2, height: 4 },
-    shadowOpacity: 0.3,
-  },
-  text: {
-    color: "black",
-  },
-});
+  function getStyles() {
+    return StyleSheet.create({
+      container: {
+        position: "absolute",
+        top: verticalScale(10),
+        width: "100%",
+        alignItems: "center",
+        backgroundColor: "transparent",
+      },
+      innerContainer: {
+        paddingHorizontal: horizontalScale(20),
+        paddingVertical: verticalScale(12),
+        backgroundColor: "lightgrey",
+        borderRadius: verticalScale(10),
+        shadowColor: colors.shades.black,
+        shadowOffset: { width: horizontalScale(2), height: verticalScale(4) },
+        shadowOpacity: moderateScale(0.3),
+      },
+      text: {
+        color: colors.shades.black,
+      },
+    });
+  }
+}

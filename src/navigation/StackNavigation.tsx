@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SettingsScreen from "src/screens/SettingsScreen";
 import useTheme from "@hooks/useTheme";
@@ -7,8 +8,8 @@ import { useNavigation } from "@react-navigation/native";
 import HelpScreen from "@screens/HelpScreen";
 import ThemeToggleButton from "@components/Buttons/ThemeToggleButton";
 import BackButton from "@components/Buttons/BackButton";
-import { Platform, StyleSheet } from "react-native";
 import { horizontalScale } from "@themes/metrics";
+import { isAndroid } from "@libs/utils";
 
 export type RootStackParamList = {
   Settings: undefined;
@@ -57,7 +58,7 @@ export default function StackNavigation() {
   function getStyles() {
     return StyleSheet.create({
       backButton: {
-        marginRight: Platform.OS === "android" ? horizontalScale(20) : 0,
+        marginRight: isAndroid() ? horizontalScale(20) : 0,
       },
     });
   }

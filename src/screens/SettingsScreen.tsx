@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import useTheme from "@hooks/useTheme";
 import { horizontalScale, verticalScale } from "@themes/metrics";
 import strings from "@resources/strings";
 import { RootStackParamList } from "@navigation/StackNavigation";
@@ -11,8 +10,6 @@ import SettingsList from "@features/settingsList/components/SettingsList";
 interface SettingsScreenProps extends NativeStackScreenProps<RootStackParamList, 'Settings'> {}
 
 export default function SettingsScreen(_: SettingsScreenProps) {
-  const { colors } = useTheme();
-
   const styles = getStyles();
 
   return (

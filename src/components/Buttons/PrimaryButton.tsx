@@ -4,6 +4,7 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  TextStyle,
   ViewStyle,
 } from "react-native";
 import PressableButton from "@components/Buttons/PressableButton";
@@ -13,7 +14,7 @@ import { verticalScale, horizontalScale } from "@themes/metrics";
 
 interface Props extends PressableProps {
   title: string;
-  textStyle?: object;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 export default function PrimaryButton({
@@ -40,7 +41,7 @@ export default function PrimaryButton({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.primary.mute,
-        width: '100%',
+        width: "100%",
         height: verticalScale(52),
         borderRadius: horizontalScale(50),
       },
