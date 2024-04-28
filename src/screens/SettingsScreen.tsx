@@ -1,15 +1,11 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { horizontalScale, verticalScale } from "@themes/metrics";
 import strings from "@resources/strings";
-import { RootStackParamList } from "@navigation/StackNavigation";
 import PrimaryButton from "@components/Buttons/PrimaryButton";
 import SettingsList from "@features/settingsList/components/SettingsList";
 
-interface SettingsScreenProps extends NativeStackScreenProps<RootStackParamList, 'Settings'> {}
-
-export default function SettingsScreen(_: SettingsScreenProps) {
+export default function SettingsScreen() {
   const styles = getStyles();
 
   return (

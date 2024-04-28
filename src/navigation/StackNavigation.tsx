@@ -4,7 +4,6 @@ import SettingsScreen from "src/screens/SettingsScreen";
 import useTheme from "@hooks/useTheme";
 import typography from "@themes/typography";
 import strings from "@resources/strings";
-import { useNavigation } from "@react-navigation/native";
 import HelpScreen from "@screens/HelpScreen";
 import ThemeToggleButton from "@components/Buttons/ThemeToggleButton";
 import BackButton from "@components/Buttons/BackButton";
@@ -20,8 +19,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function StackNavigation() {
   const { colors } = useTheme();
-  const navigation = useNavigation();
-
   const styles = getStyles();
 
   return (
